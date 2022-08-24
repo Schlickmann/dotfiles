@@ -7,7 +7,7 @@ This repository serves as my way to help me setup and maintain my Mac. It takes 
 1. Clone this repo to `~/dotfiles` with:
 
     ```zsh
-    git clone --recursive git@github.com:keltonkowalchuk/dotfiles.git ~/dotfiles
+    git clone --recursive git@github.com:Schlickmann/dotfiles.git ~/dotfiles
     ```
 
 2. Run the installation with:
@@ -29,8 +29,8 @@ This repository serves as my way to help me setup and maintain my Mac. It takes 
 1. Open up your Settings JSON in VSCode by using the command pallete and typing "settings json" and add the following:
 
     ```zsh
-    # Replace "keltonkowalchuk" with your Github username if forking this repo
-    "dotfiles.repository": "keltonkowalchuk/dotfiles", 
+    # Replace "Schlickmann" with your Github username if forking this repo
+    "dotfiles.repository": "Schlickmann/dotfiles", 
     "dotfiles.installCommand": "~/dotfiles/install",
     "terminal.integrated.defaultProfile.linux": "zsh"
     ```
