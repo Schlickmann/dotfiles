@@ -107,17 +107,10 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="code ~/.zshrc"
 alias sourcezsh="source ~/.zshrc"
 
-# Thinkific specific
-alias think="code ~/Thinkific/workspace/thinkific-dev"
-alias communities="code ~/Thinkific/workspace/communities-dev"
-alias graphdump="bin/rake graphql:schema_dump"
-alias startAWS="aws --profile think-dev sso login"
-
 include "$DOTFILES/zsh/pure.zsh"
 include "$DOTFILES/zsh/fzf.zsh"
 
 if [[ $(uname) = Darwin ]]; then
-  include "$DOTFILES/zsh/thinkific.zsh"
   include "$DOTFILES/zsh/nvm.zsh"
 fi
 
