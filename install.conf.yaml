@@ -11,27 +11,27 @@
     ~/.gitconfig: git.conf
 
 - shell:
-  - description: Installing submodules
-    command: git submodule update --init --recursive
-  - description: Installing oh-my-zsh
-    command: $([[ -d "$HOME/.oh-my-zsh" ]] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended --keep-zshrc)
-  - description: Installing zsh-autosuggestions
-    command: repo=https://github.com/zsh-users/zsh-autosuggestions &&
-      target=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions &&
-      git clone --depth 1 $repo $target ||
-      git -C $target pull
-  - description: Installing zsh-syntax-highlighting
-    command: repo=https://github.com/zsh-users/zsh-syntax-highlighting &&
-      target=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting &&
-      git clone --depth 1 $repo $target ||
-      git -C $target pull
-  - description: Installing pure
-    command: repo=https://github.com/sindresorhus/pure.git &&
-      target=$HOME/.zsh/pure &&
-      git clone --depth 1 $repo $target ||
-      git -C $target pull
-  - description: Installing fzf
-    command: repo=https://github.com/junegunn/fzf.git &&
-      target=$HOME/.fzf &&
-      $(git clone --depth 1 $repo $target && $target/install) ||
-      git -C $target pull
+    - description: Installing submodules
+      command: git submodule update --init --recursive
+    - description: Installing oh-my-zsh
+      command: $([[ -d "$HOME/.oh-my-zsh" ]] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended --keep-zshrc)
+    - description: Installing zsh-autosuggestions
+      command: repo=https://github.com/zsh-users/zsh-autosuggestions &&
+        target=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions &&
+        git clone --depth 1 $repo $target ||
+        git -C $target pull
+    - description: Installing zsh-syntax-highlighting
+      command: repo=https://github.com/zsh-users/zsh-syntax-highlighting &&
+        target=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting &&
+        git clone --depth 1 $repo $target ||
+        git -C $target pull
+    - description: Installing zsh-fzf-history-search
+      command: repo=https://github.com/joshskidmore/zsh-fzf-history-search &&
+        target=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-fzf-history-search &&
+        git clone --depth 1 $repo $target ||
+        git -C $target pull
+    - description: Installing pure
+      command: repo=https://github.com/sindresorhus/pure.git &&
+        target=$HOME/.zsh/pure &&
+        git clone --depth 1 $repo $target ||
+        git -C $target pull
