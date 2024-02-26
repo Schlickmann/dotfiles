@@ -15,6 +15,8 @@
       command: git submodule update --init --recursive
     - description: Installing oh-my-zsh
       command: $([[ -d "$HOME/.oh-my-zsh" ]] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended --keep-zshrc)
+    - description: Installing fzf
+      command: $([[ -d "$HOME/.fzf" ]] || (git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish))
     - description: Installing zsh-autosuggestions
       command: repo=https://github.com/zsh-users/zsh-autosuggestions &&
         target=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions &&
