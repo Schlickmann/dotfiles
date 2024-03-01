@@ -11,6 +11,7 @@ cask "vlc"                      # Open Source Video Player
 cask "google-chrome"            # Browser
 cask "slack"                    # Team communication and collaboration software
 cask "1password"                # Password manager
+cask "insomnia"                 # HTTP and GraphQL Client
 
 brew "commitizen"   # Semantic Git commit messages
 brew "gh"           # Github CLI
