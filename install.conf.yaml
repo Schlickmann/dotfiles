@@ -37,3 +37,11 @@
         target=$HOME/.zsh/pure &&
         git clone --depth 1 $repo $target ||
         git -C $target pull
+    - description: Installing Dracula theme
+      command: repo=https://github.com/dracula/zsh.git &&
+        mkdir ~/.external-themes/ &&
+        target=~/.external-themes/dracula &&
+        git clone --depth 1 $repo $target ||
+        git -C $target pull &&
+        ln -sf $target/dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
+

@@ -1,3 +1,7 @@
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 # Include other scripts if they exist on the system
 include() {
   [[ -f "$1" ]] && source "$1" || echo "ERROR loading ${1}"
@@ -106,6 +110,8 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 alias zshconfig="code ~/.zshrc"
 alias sourcezsh="source ~/.zshrc"
+alias vault='aws-vault exec monolith-production-developer --'
+alias sourceasdf=". $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh"
 
 include "$DOTFILES/zsh/pure.zsh"
 include "$DOTFILES/zsh/fzf.zsh"
@@ -136,3 +142,9 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
+# Direnv configs
+eval "$(direnv hook zsh)"
+
+# . $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
+
