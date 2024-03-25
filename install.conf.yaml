@@ -38,10 +38,11 @@
         git clone --depth 1 $repo $target ||
         git -C $target pull
     - description: Installing Dracula theme
-      command: repo=https://github.com/dracula/zsh.git &&
+    # https://blog.rocketseat.com.br/terminal-com-oh-my-zsh-spaceship-dracula-e-mais/
+      command: repo=https://github.com/dracula/terminal-app.git &&
+        '[[ -d "~/.external-themes/" ]] &&  rm -r ~/.external-themes/'
         mkdir ~/.external-themes/ &&
         target=~/.external-themes/dracula &&
         git clone --depth 1 $repo $target ||
-        git -C $target pull &&
-        ln -sf $target/dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
+        git -C $target pull
 
