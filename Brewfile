@@ -14,6 +14,7 @@ cask "1password"                # Password manager
 cask "insomnia"                 # HTTP and GraphQL Client
 cask "notion"                   # Note taking and collaboration
 cask "medis"                    # Redis GUI
+cask "dbeaver-community"        # Database Management
 
 brew "commitizen"   # Semantic Git commit messages
 brew "gh"           # Github CLI
