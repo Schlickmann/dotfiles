@@ -108,10 +108,29 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-alias zshconfig="code ~/.zshrc"
+alias openzshconfig="code ~/.zshrc"
 alias sourcezsh="source ~/.zshrc"
+# [Start] AWS Vault
 alias vault='aws-vault exec monolith-production-developer --'
+# https://gitlab.com/zapier/cypress-utils/-/tree/main/packages/cypress-e2e-utils?ref_type=heads#aws
+# aws-vault also allows you to output the current credentials for your IAM user to the shell. 
+alias vaulttempcreds='aws-vault exec monolith-production-developer -- env | grep AWS'
+alias vaultcreds='aws-vault exec --no-session monolith-production-developer -- env | grep AWS'
+# [End] AWS Vault
 alias sourceasdf=". $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh"
+alias opengitconfig='git config --global -e' # Open global git config in editor
+alias pythonvenv='python -m venv .venv && source .venv/bin/activate'
+
+# # Auto-activate Python virtual environment when entering project directory
+# auto_activate_venv() {
+#     if [[ -f ".venv/bin/activate" && -z "$VIRTUAL_ENV" ]]; then
+#         echo "🐍 Activating virtual environment..."
+#         source .venv/bin/activate
+#     fi
+# }
+
+# # Hook to run auto_activate_venv when changing directories
+# add-zsh-hook chpwd auto_activate_venv
 
 include "$DOTFILES/zsh/pure.zsh"
 include "$DOTFILES/zsh/fzf.zsh"
@@ -122,29 +141,43 @@ fi
 
 
 # place this after nvm initialization!
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
+# autoload -U add-zsh-hook
+# load-nvmrc() {
+#   local node_version="$(nvm version)"
+#   local nvmrc_path="$(nvm_find_nvmrc)"
 
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+#   if [ -n "$nvmrc_path" ]; then
+#     local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
 
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+#     if [ "$nvmrc_node_version" = "N/A" ]; then
+#       nvm install
+#     elif [ "$nvmrc_node_version" != "$node_version" ]; then
+#       nvm use
+#     fi
+#   elif [ "$node_version" != "$(nvm version default)" ]; then
+#     echo "Reverting to nvm default version"
+#     nvm use default
+#   fi
+# }
+# add-zsh-hook chpwd load-nvmrc
+# load-nvmrc
 
 # Direnv configs
 eval "$(direnv hook zsh)"
 
+# Alias above >>>> sourceasdf
 # . $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
 
+
+# pnpm
+export PNPM_HOME="/Users/julian/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# . /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+# PATH=~/.console-ninja/.bin:$PATH
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
