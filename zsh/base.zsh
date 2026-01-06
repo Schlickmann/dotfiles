@@ -181,3 +181,8 @@ esac
 
 # PATH=~/.console-ninja/.bin:$PATH
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
+# Zapier Omni Hook
+export ZOH_HOME="$HOME/.zapier-omni-hook"
+export ZOH_PLUGINS_DIR="$ZOH_HOME/plugins"
+export ZOH_DEBUG=0
