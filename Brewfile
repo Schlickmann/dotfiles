@@ -16,7 +16,8 @@ cask "notion"                   # Note taking and collaboration
 cask "medis"                    # Redis GUI
 cask "dbeaver-community"        # Database Management
 cask "watchman"                 # File watcher
-cask "claude-code"               # AI assistant for developers
+cask "claude-code"              # AI assistant for developers
+cask "libomp"                   # LLVM's OpenMP runtime library  
 
 brew "commitizen"   # Semantic Git commit messages
 brew "gh"           # Github CLI
