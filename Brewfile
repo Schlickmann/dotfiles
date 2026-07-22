@@ -17,6 +17,8 @@ cask "libomp"                   # LLVM's OpenMP runtime library
 cask "r"                        # R programming language
 cask "xquartz"                  # X11 server for macOS
 
+brew "kubectl"                  # Kubernetes CLI
+brew "kubectx"                  # Kubernetes Context and Namespace management
 brew "commitizen"               # Semantic Git commit messages
 brew "gh"                       # Github CLI
 brew "git"                      # Version control (latest)
